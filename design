@@ -1,0 +1,8 @@
+module parity_gen_chk (
+    input [3:0] data,
+    output parity,   // Even parity
+    output is_even_parity
+);
+    assign parity = ^data;
+    assign is_even_parity = (parity == 0);
+endmodule
