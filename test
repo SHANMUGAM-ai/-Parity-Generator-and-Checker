@@ -1,0 +1,15 @@
+`timescale 1ns/1ps
+module tb_parity_gen_chk;
+    reg [3:0] data;
+    wire parity, is_even_parity;
+
+    parity_gen_chk uut(data, parity, is_even_parity);
+
+    initial begin
+        $dumpfile("parity.vcd"); $dumpvars(0, tb_parity_gen_chk);
+        data = 4'b0000; #10;
+        data = 4'b1011; #10;
+        data = 4'b1111; #10;
+        $finish;
+    end
+endmodule
